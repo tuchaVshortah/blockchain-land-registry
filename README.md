@@ -1,6 +1,8 @@
 # Project description:
 Blockchain Land Registry is a decentralized platform that utilizes blockchain technology to provide a secure, transparent, and immutable land registry system. The traditional land registry system suffers from inefficiencies, errors, and fraud, but our system ensures trust and accuracy using decentralized ledger technology. It is built on Ethereum, Solidity, and IPFS, making it efficient, scalable, and cost-effective. It allows anyone, anywhere in the world, to access the land registry records and verify their ownership without intermediaries. Our project is currently in development.
-##Tech Stack Used:
+
+## Tech Stack Used:
+
 **Frontend:**
 * Javascript
 * HTML
@@ -25,7 +27,7 @@ Visual Studio Code (VS Code) is a popular open-source code editor developed by M
 
 **To install VS Code on your computer, follow these steps:**
 
-1. Go to the official website of VS Code at https://code.visualstudio.com/.
+1. Go to the official website of VS Code at [Link Text](https://code.visualstudio.com/).
 2. Click on the "Download" button for your operating system (Windows, macOS, or Linux).
 3. Once the download is complete, run the installer file. The installer will guide you through the installation process.
 4. You can choose the default settings or customize the installation as per your requirement.
@@ -38,7 +40,7 @@ Node.js is a popular open-source, cross-platform, back-end JavaScript runtime en
 
 **To install Node.js on your computer, follow these steps:**
 
-1. Go to the official website of Node.js at https://nodejs.org/en/.
+1. Go to the official website of Node.js at [Link Text](https://nodejs.org/en/).
 2. Click on the "Download" button for the LTS (Long-Term Support) version, which is recommended for most users.
 3. Choose the installer package for your operating system (Windows, macOS, or Linux).
 4. Run the installer file and follow the instructions to complete the installation process. You can choose the default settings or customize the installation as per your requirement.
@@ -62,7 +64,7 @@ Ganache is a personal blockchain for Ethereum development that enables developer
 
 **To install Ganache on your computer, follow these steps:**
 
-1. Go to the official website of Ganache at https://www.trufflesuite.com/ganache.
+1. Go to the official website of Ganache at [Link Text](https://www.trufflesuite.com/ganache).
 2. Click on the "Download" button to download the installer package for your operating system (Windows, macOS, or Linux).
 3. Run the installer file and follow the instructions to complete the installation process. You can choose the default settings or customize the installation as per your requirement.
 4. Once the installation is complete, launch Ganache from the Start menu or the desktop shortcut.
@@ -72,31 +74,126 @@ Now that you have Ganache installed, you can use it to test and deploy Ethereum 
 # Steps to run Project:
 Instructions on how to use this project, including any command-line arguments or configuration options.
 1. Clone the github repository and cd to the folder
-2. Install the Web3JS using npm https://web3js.readthedocs.io/en/v1.10.0/getting-started.html
+2. Install the Web3JS using npm [Link Text](https://web3js.readthedocs.io/en/v1.10.0/getting-started.html)
 3. Open Ganache and keep it running in the Background
 4. Install the Metamask chrome extension, choose the local network (Ganache) and import the accounts
-5. Go to web Remix ide (https://remix.ethereum.org) Create Registry.sol file in contracts folder and compile the Registry contract Copy the ABI of contract
+5. Go to web Remix ide [Link Text](https://remix.ethereum.org) Create Registry.sol file in contracts folder and compile the Registry contract Copy the ABI of contract
 6. After deploy the contract with **Injected Provider-Mestamask** when transaction will be confirm then copy the contract address
-7. Copy contract address and ABI as seen in the image below and paste in variable contractAddress located in the file ./LandChain/src/index.js
-    ```const Deploy = async () => {   
+7. Copy contract address and ABI as seen in the image below and paste in variable Address and ABI located in the file ./LandChain/src/index.js
+    ```  
 	const Address="0x2fF0.......";
 	const ABI=[.....] ;
   	window.web3 = await new Web3(window.ethereum);
   	window.contract = await new window.web3.eth.Contract( ABI, Address);
-};```
+    ```
 8. Open new terminal and Start the server : **node server.js**
+9. Now go to [Link Text](http://localhost:9696)
 
-# Code examples:
-Examples of how to use your project's code, with sample code snippets or links to sample projects.
+## Smart-Contract Code:
+ `
+ // SPDX-License-Identifier: MIT
+pragma solidity >= 0.5.0 < 0.9.0;
+
+// Creating a Smart Contract
+contract Registry {
+
+  struct users {
+    address Account;
+    string name;
+    string gender;
+    string Address;
+    string phone;
+    string password;
+  }
+
+  struct asset {
+    address Account;
+    string Location;
+    string District;
+    string plot_no;
+    string area;
+    int asset_value;
+  }
+
+  mapping(string => address[]) Khatiyan;
+  address[] temp;
+  users[] usr;
+  mapping(string => asset[]) all_asts;
+  asset[] ast;
+
+//   address  put this in account input datatype    
+
+  function add_user(address Account, string memory name, string memory gender, string memory Address, string memory phone, string memory password) public {
+    users memory e = users(Account, name, gender, Address, phone, password);
+    usr.push(e);
+  }
+
+
+  function get_user(address Account) public view returns(string memory, string memory, string memory, string memory, string memory) {
+    uint i;
+    for (i = 0; i < usr.length; i++) {
+      users memory e = usr[i];
+      if (e.Account == Account) {
+        return (e.name, e.gender, e.Address, e.phone, e.password);
+      }
+    }
+    return ("Not Found", "Not Found", "Not Found", "Not Found", "");
+  }
+
+
+//   -----------------------Asset wala kaam yahan se suru hai------------------------------------
+
+  function add_asset(address Account, string memory Location, string memory District, string memory plot_no, string memory area, int value) public {
+    asset memory a = asset(Account, Location, District, plot_no, area, value);
+    ast.push(a);
+  }
+
+  function change_assetValue(address account, int value) public{
+    uint i;
+    for (i = 0; i < ast.length; i++) {
+      asset memory a = ast[i];
+      if (a.Account == account) {
+        ast[i].asset_value = value;
+      }
+    }
+  }
+  function get_asset(address Account) public view returns(string memory, string memory, string memory, string memory, int) {
+    uint i;
+    for (i = 0; i < ast.length; i++) {
+      asset memory a = ast[i];
+      if (a.Account == Account) {
+        return (a.Location, a.District, a.plot_no, a.area, a.asset_value);
+      }
+    }
+    return ("Not Found", "Not Found", "Not Found", "Not Found", 0);
+  }
+
+
+//   -----------------------Asset transfer wala kaam yahan se suru hai------------------------------------
+
+  function get_array() public view returns( asset[] memory){
+      return(ast);
+  }
+  
+  function transferlnd(address payable sellerAddress, uint values) payable public {
+    uint pay=msg.value + values;
+    sellerAddress.transfer(pay);
+    uint i;
+    for (i = 0; i < ast.length; i++) {
+      asset memory a = ast[i];
+      if (a.Account == sellerAddress) {
+        ast[i].Account=msg.sender;
+      }
+    }
+  }
+}
+`
 
 # Contribution guidelines:
 Information on how others can contribute to your project, including how to submit bug reports, feature requests, and pull requests.
 
-# License:
+# User Interface of LandChain:
 A statement of the license under which your project is released.
-
-# Credits:
-Acknowledgements of any libraries, tools, or people who helped you in creating the project.
 
 # Contact information:
 Information on how to contact you, such as your email address or social media handles.
