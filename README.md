@@ -90,7 +90,7 @@ Instructions on how to use this project, including any command-line arguments or
 9. Now go to [Link Text](http://localhost:9696)
 
 ## Smart-Contract Code:
- `
+ ```
  // SPDX-License-Identifier: MIT
 pragma solidity >= 0.5.0 < 0.9.0;
 
@@ -141,7 +141,7 @@ contract Registry {
   }
 
 
-//   -----------------------Asset wala kaam yahan se suru hai------------------------------------
+//   -----------------------Asset wala kaam ------------------------------------
 
   function add_asset(address Account, string memory Location, string memory District, string memory plot_no, string memory area, int value) public {
     asset memory a = asset(Account, Location, District, plot_no, area, value);
@@ -169,7 +169,7 @@ contract Registry {
   }
 
 
-//   -----------------------Asset transfer wala kaam yahan se suru hai------------------------------------
+//   -----------------------Asset transfer wala kaam ------------------------------------
 
   function get_array() public view returns( asset[] memory){
       return(ast);
@@ -187,7 +187,7 @@ contract Registry {
     }
   }
 }
-`
+```
 
 # Contribution guidelines:
 Information on how others can contribute to your project, including how to submit bug reports, feature requests, and pull requests.
