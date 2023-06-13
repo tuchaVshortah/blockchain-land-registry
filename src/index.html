@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>LandRegistry</title>
+  <link rel="stylesheet" href="css/mutation.css">
+	<link rel="stylesheet" href="css/style2.css">
+	<link rel="stylesheet" href="css/datasheet.css">
+  <link rel="stylesheet" href="css/login-form.css">
+  <link rel="stylesheet" href="css/home.css">
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<section id="active_Current_Tabs">
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#">Blockchain Land Registry</a>
+      </div>
+      <ul>
+        <li id="t0" class="tab active">Home</li>
+        <li id="t1" class="tab">User Profile</li>
+        <li id="t2" class="tab">Add Lands</li>
+        <li id="t3" class="tab">Search</li>
+        <li id="t4" class="tab">Record</li>
+        <li id="t5" class="tab">Mutation</li>
+        <li id="t6" class="tab">About</li>
+      </ul>
+    </div>
+  </nav><br>
+
+
+  <main class="main-doc">
+<!-------------------------------------------------HOME PAGE--------------------------------------------------->
+    <div class="page active" id="p0">
+      <div class="img"></div>
+    </div>
+
+
+
+<!-------------------------------------------------PROFILE REGISTRATION------------------------------------>
+      <div class="page" id="p1">
+        <!--User Login part---->
+        <form id="lg1" class="cm-login-form" onsubmit="return false" >
+          <fieldset>
+            <center><legend> User login </legend></center>
+            <input type="text" id="login_account_no" class="cm-text-input" placeholder="Enter Account Number">
+            <input type="password" id="login_password" class="cm-text-input" placeholder="Enter Password">
+          </fieldset>
+          <button type="submit" class="cm-submit2" onclick="userlogin()"> Login Profile </button>
+          <br>
+          <center><button type="submit" class="cm-submit2" style="width: 25%;" onclick="cp1()">Go to create profile</button></center>
+        </form>
+
+        <!--User page after login part---->
+        <form id="userpage" style="display: none;" class="cm-login-form" onsubmit="return false">
+          <fieldset>
+            <center><legend>Land For Sell <p style="float: right; font-weight: bold;" onclick="lgout()">LogOut</p></legend></center>
+            <div class="card" id="card-container" style="background: white;"></div>            
+          </fieldset>
+        </form>
+
+        <!--User profile creation part---->
+        <form id="cp1" class="cm-login-form" onsubmit="return false" style="display: none;">
+          <fieldset>
+            <center><legend>User Register</legend></center>
+            <input type="text" id="account_no" class="cm-text-input" placeholder="Account No">
+            <input type="text" id="name" class="cm-text-input" placeholder="Name">
+            <input type="text" id="Gender" class="cm-text-input" placeholder="Gender">
+            <input type="text" id="Address" class="cm-text-input" placeholder="Address">
+            <input type="text" id="phone" class="cm-text-input" placeholder="Contact no">
+            <input type="text" id="password" class="cm-text-input" placeholder="password">
+            <span><label for="file-upload" class="upload-label">Upload ID proof</label><input type="file" class="cm-file-input" id="file-upload" ></span>
+          </fieldset>
+          <button type="submit" class="cm-submit2" onclick="createProfile()"> Create Profile </button>
+          <br>
+          <center><button type="submit" style="width: 25%;" class="cm-submit2" onclick="lg1()">Go to login page</button></center>
+        </form>
+      </div>
+
+
+<!-------------------------------------------------LAND ASSETS REGISTRATION------------------------------------>
+      <div class="page" id="p2">
+        <form id="cp2" class="cm-login-form" onsubmit="return false" >
+          <fieldset>
+            <center><legend>Add Land</legend></center>
+            <input type="text" id="account_no_asset" class="cm-text-input" placeholder="Account No">
+            
+            <input type="text" id="Location" class="cm-text-input" placeholder="Location">
+
+            <input type="text" id="District" class="cm-text-input" placeholder="District">
+            <input type="text" id="Plot_no" class="cm-text-input" placeholder="Plot No">
+            <input type="text" id="Area" class="cm-text-input" placeholder="Area (in sqft)">
+            <input type="text" id="Assest_value" class="cm-text-input" placeholder="Assest Value">
+            <span><label for="file-upload" class="upload-label">Upload land paper</label><input type="file" class="cm-file-input" id="file-upload" ></span>
+          </fieldset>
+          <button type="submit" class="cm-submit2" onclick="create_asset()"> Register Assest</button>
+        </form>
+      </div>
+
+
+
+<!-------------------------------------------------SEARCH DETAILS---------------------------------------------->
+          <div class="page" id="p3">
+            <form class="cm-login-form" onsubmit="return false">
+              <fieldset>
+                <center><legend>Land Record</legend></center>
+                <input type="text" id="search_no" class="cm-text-input" placeholder="Enter Account Number">
+              </fieldset>
+              <button type="submit" class="cm-submit2" onclick="displaydata()"> Search </button>
+        
+              <div class="search" id="search_container" style="display: block;">
+                <center><h2 style="text-decoration: underline ;">Land Details</h2></center>
+                <div style="font-weight: bold; padding-top: 20px; padding-bottom: 5px; color: darkgreen;">Personal Detail</div> <span></span>
+                  <div class="blockchain-container-data">
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">Name</div>
+                      <div class="block-chain-75" id="search_name"></div>
+                    </div>
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">Gender</div>
+                      <div class="block-chain-75" id="search_gender"></div>
+                    </div>
+                  </div>
+                  <div class="blockchain-container-data">
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">Address</div>
+                      <div class="block-chain-75" id="search_address"></div>
+                    </div>
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">Phone</div>
+                      <div class="block-chain-75" id="search_phone"></div>
+                    </div>
+                  </div>
+                  <br><br>
+        
+                  <div style="font-weight: bold; padding-bottom: 5px; color: darkgreen;">Property Detail</div> <span></span>
+                  <div class="blockchain-container-data">
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">Land Location</div>
+                      <div class="block-chain-75" id="search_location"></div>
+                    </div>
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">District</div>
+                      <div class="block-chain-75" id="search_district"></div>
+                    </div>
+                  </div>
+                  <div class="blockchain-container-data">
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">Plot no</div>
+                      <div class="block-chain-75" id="search_plotno"></div>
+                    </div>
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">Area </div>
+                      <div class="block-chain-75" id="search_area"> </div>
+                    </div>
+                  </div>
+                  <div class="blockchain-container-data">
+                    <div class="block-chain-50 display-inline-flex">
+                      <div class="block-chain-25">Asset value </div>
+                      <div class="block-chain-75" id="search_assetvalue" style="color: red;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+
+<!------------------------------------------------- LIST OF LAND ASSETS------------------------------------------->
+      <div class="page" id="p4">
+				<form class="cm-login-form" onsubmit="return false">
+					<fieldset>
+						<center>
+							<legend>Land For Sell</legend>
+						</center>
+						<button type="submit" class="cm-submit2" onclick="displayrecords()"> Click here to see all users
+							land records </button>
+					</fieldset>
+					<br>
+					<div class="tabledata" id="tableshow" style="display: none;">
+						<table id="myytab">
+							<tr>
+								<th class="head">Account no</th>
+								<th class="head">Name</th>
+								<th class="head">Gender</th>
+								<th class="head">Address</th>
+								<th class="head">land location</th>
+								<th class="head">District</th>
+								<th class="head">Plot no</th>
+								<th class="head">Area(sqft)</th>
+								<th class="head">Asset value </th>
+								<th class="head">Phone no</th>
+							</tr>
+						</table>
+					</div>
+				</form>
+      </div>
+
+
+
+<!-------------------------------------------------MUTATION OF OWNERSHIP------------------------------------------>
+      <div class="page" id="p5">
+        <form class="cm-login-form" onsubmit="return false" >
+          <fieldset>
+            <center><legend> Buyer </legend></center>
+            <input type="text" id="buyer_account_no" class="cm-text-input" placeholder="Enter Account Number">
+            <input type="password" id="buyer_password" class="cm-text-input" placeholder="Enter Password"> 
+            <div class="button-row">
+              <button type="submit" class="cm-submit2" onclick="verifyBuyer()" id="verifybuyer"> Verify &rarr; Send Request </button>
+              <input type="text" id="send_account_no" class="cm-text-input" placeholder="Enter Account Number" style="display: none;">
+              <button type="submit" class="cm-submit2" onclick="sendRequest()" style="display: none;" id="SendRequest"> Send Request to Seller </button>
+            </div>                                       
+          </fieldset>
+            <br>
+          <fieldset>
+            <center><legend> Seller </legend></center>
+            <input type="text" id="vendor_account_no" class="cm-text-input" placeholder="Enter Account Number">
+            <input type="password" id="vendor_password" class="cm-text-input" placeholder="Enter Password">
+            <div class="button-row">
+              <button type="submit" class="cm-submit2" onclick="verifySeller()" id="verifyseller"> Verify &rarr; Accept Request </button>
+              <button type="submit" class="cm-submit2" onclick="transferLnd()" style="display: none;" id="transferlnd">Transfer</button>
+            </div>
+          </fieldset>
+                  
+            <button type="submit" class="cm-submit2" onclick="displayDetails()"> Fetch Buyer/Seller Data </button>
+
+            <div class="search" id="search_container_vendor" style="display: none;">
+              <div class="button-row" >
+                <div  style="width: 50%; font-weight: bold; color: darkgreen;">Buyer Detail</div>
+                <div  style="width: 50%; font-weight: bold; color: darkgreen;">Owner Detail</div>
+              </div>
+              <div class="button-row">
+                <div class="blockchain-container-data ">
+                  <div class="block-chain-50 display-inline-block ">
+                    <div class="block-chain-25 ">Buyer Name</div>
+                    <div class="block-chain-25 ">Phone no</div>
+                    <div class="block-chain-25 ">location</div>
+                    <div class="block-chain-25 ">District</div>
+                    <div class="block-chain-25 ">Plot no</div>
+                    <div class="block-chain-25 ">Plot area</div>
+                    <div class="block-chain-25 ">Plot Price</div>
+                  </div>
+                  <div class="block-chain-50 display-inline-block ">
+                    <div class="block-chain-75 " id="buyer_name"></div>
+                    <div class="block-chain-75" id="buyer_phone"></div>
+                    <div class="block-chain-75 " id="buyer_location"></div>
+                    <div class="block-chain-75 " id="buyer_district"></div>
+                    <div class="block-chain-75 " id="buyer_plotno"></div>
+                    <div class="block-chain-75" id="buyer_plotarea"></div>
+                    <div class="block-chain-75 " id="buyer_plotprice"></div> 
+                  </div>
+                </div>
+                    
+                <div class="blockchain-container-data ">
+                  <div class="block-chain-50 display-inline-block ">
+                    <div class="block-chain-25 ">Owner Name</div>
+                    <div class="block-chain-25 ">Phone no</div>
+                    <div class="block-chain-25 ">location</div>
+                    <div class="block-chain-25 ">District</div>
+                    <div class="block-chain-25 ">Plot no</div>
+                    <div class="block-chain-25 ">Plot area</div>
+                    <div class="block-chain-25 ">Plot Price</div>
+                  </div>
+                  <div class="block-chain-50 display-inline-block ">
+                    <div class="block-chain-75 " id="owner_name"></div>
+                    <div class="block-chain-75" id="owner_phone"></div>
+                    <div class="block-chain-75 " id="owner_location"></div>
+                    <div class="block-chain-75 " id="owner_district"></div>
+                    <div class="block-chain-75 " id="owner_plotno"></div>
+                    <div class="block-chain-75" id="owner_plotarea"></div>
+                    <div class="block-chain-75 " id="owner_plotprice"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+
+<!-------------------------------------------------SETTINS PAGE--------------------------------------------->
+        <div class="page" id="p6">
+            <form class="cm-login-form" onsubmit="return false" >
+              <fieldset>
+                <center><legend> About </legend></center>
+              </fieldset><br>
+            </form>
+        </div>
+
+
+
+      </main>
+    </section>
+
+    <script src="css/home.js"></script>
+    <script src="index.js"></script>
+     
+</body>
+</html>
