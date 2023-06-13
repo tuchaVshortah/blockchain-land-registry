@@ -27,7 +27,7 @@ Visual Studio Code (VS Code) is a popular open-source code editor developed by M
 
 **To install VS Code on your computer, follow these steps:**
 
-1. Go to the official website of VS Code at [Link Text](https://code.visualstudio.com/).
+1. Go to the official website of VS Code at [https://code.visualstudio.com/](https://code.visualstudio.com/).
 2. Click on the "Download" button for your operating system (Windows, macOS, or Linux).
 3. Once the download is complete, run the installer file. The installer will guide you through the installation process.
 4. You can choose the default settings or customize the installation as per your requirement.
@@ -40,7 +40,7 @@ Node.js is a popular open-source, cross-platform, back-end JavaScript runtime en
 
 **To install Node.js on your computer, follow these steps:**
 
-1. Go to the official website of Node.js at [Link Text](https://nodejs.org/en/).
+1. Go to the official website of Node.js at [https://nodejs.org/en/](https://nodejs.org/en/).
 2. Click on the "Download" button for the LTS (Long-Term Support) version, which is recommended for most users.
 3. Choose the installer package for your operating system (Windows, macOS, or Linux).
 4. Run the installer file and follow the instructions to complete the installation process. You can choose the default settings or customize the installation as per your requirement.
@@ -64,7 +64,7 @@ Ganache is a personal blockchain for Ethereum development that enables developer
 
 **To install Ganache on your computer, follow these steps:**
 
-1. Go to the official website of Ganache at [Link Text](https://www.trufflesuite.com/ganache).
+1. Go to the official website of Ganache at [https://www.trufflesuite.com/ganache](https://www.trufflesuite.com/ganache).
 2. Click on the "Download" button to download the installer package for your operating system (Windows, macOS, or Linux).
 3. Run the installer file and follow the instructions to complete the installation process. You can choose the default settings or customize the installation as per your requirement.
 4. Once the installation is complete, launch Ganache from the Start menu or the desktop shortcut.
@@ -74,10 +74,10 @@ Now that you have Ganache installed, you can use it to test and deploy Ethereum 
 # Steps to run Project:
 Instructions on how to use this project, including any command-line arguments or configuration options.
 1. Clone the github repository and cd to the folder
-2. Install the Web3JS using npm [Link Text](https://web3js.readthedocs.io/en/v1.10.0/getting-started.html)
+2. Install the Web3JS using npm [https://web3js.readthedocs.io/en/v1.10.0/getting-started.html](https://web3js.readthedocs.io/en/v1.10.0/getting-started.html)
 3. Open Ganache and keep it running in the Background
 4. Install the Metamask chrome extension, choose the local network (Ganache) and import the accounts
-5. Go to web Remix ide [Link Text](https://remix.ethereum.org) Create Registry.sol file in contracts folder and compile the Registry contract Copy the ABI of contract
+5. Go to web Remix ide [https://remix.ethereum.org](https://remix.ethereum.org) Create Registry.sol file in contracts folder and compile the Registry contract Copy the ABI of contract
 6. After deploy the contract with **Injected Provider-Mestamask** when transaction will be confirm then copy the contract address
 7. Copy contract address and ABI as seen in the image below and paste in variable Address and ABI located in the file ./LandChain/src/index.js
     ```  
@@ -87,9 +87,9 @@ Instructions on how to use this project, including any command-line arguments or
   	window.contract = await new window.web3.eth.Contract( ABI, Address);
     ```
 8. Open new terminal and Start the server : **node server.js**
-9. Now go to [Link Text](http://localhost:9696)
+9. Now go to [http://localhost:9696](http://localhost:9696)
 
-## Smart-Contract Code:
+## Smart-Contract Code (Registry.sol):
  ```
  // SPDX-License-Identifier: MIT
 pragma solidity >= 0.5.0 < 0.9.0;
