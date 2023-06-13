@@ -1,5 +1,21 @@
 # Project description:
 Blockchain Land Registry is a decentralized platform that utilizes blockchain technology to provide a secure, transparent, and immutable land registry system. The traditional land registry system suffers from inefficiencies, errors, and fraud, but our system ensures trust and accuracy using decentralized ledger technology. It is built on Ethereum, Solidity, and IPFS, making it efficient, scalable, and cost-effective. It allows anyone, anywhere in the world, to access the land registry records and verify their ownership without intermediaries. Our project is currently in development.
+##Tech Stack Used:
+**Frontend:**
+* Javascript
+* HTML
+* CSS
+* Metamask Chrome Extension
+
+**Backend:**
+* Ethereum Blockchain (Truffle Suite)
+* Solidity
+* Ganache
+
+**Important Tools/Libraries:**
+* VS-Code
+* NodeJS (npm)
+* Web3JS
 
 # Installation instructions:
 Step-by-step instructions on how to install and set up your project.
@@ -53,8 +69,22 @@ Ganache is a personal blockchain for Ethereum development that enables developer
 
 Now that you have Ganache installed, you can use it to test and deploy Ethereum applications locally. Some of the popular use cases of Ganache include testing smart contracts, interacting with the blockchain using the GUI or CLI, and simulating different network conditions to see how your application behaves under different scenarios. Ganache also integrates with popular development tools like Truffle, Remix, and MetaMask, making it easy to develop, test, and deploy Ethereum applications.
 
-# Usage instructions:
-Instructions on how to use your project, including any command-line arguments or configuration options.
+# Steps to run Project:
+Instructions on how to use this project, including any command-line arguments or configuration options.
+1. Clone the github repository and cd to the folder
+2. Install the Web3JS using npm https://web3js.readthedocs.io/en/v1.10.0/getting-started.html
+3. Open Ganache and keep it running in the Background
+4. Install the Metamask chrome extension, choose the local network (Ganache) and import the accounts
+5. Go to web Remix ide (https://remix.ethereum.org) Create Registry.sol file in contracts folder and compile the Registry contract Copy the ABI of contract
+6. After deploy the contract with **Injected Provider-Mestamask** when transaction will be confirm then copy the contract address
+7. Copy contract address and ABI as seen in the image below and paste in variable contractAddress located in the file ./LandChain/src/index.js
+    ```const Deploy = async () => {   
+	const Address="0x2fF0.......";
+	const ABI=[.....] ;
+  	window.web3 = await new Web3(window.ethereum);
+  	window.contract = await new window.web3.eth.Contract( ABI, Address);
+};```
+8. Open new terminal and Start the server : **node server.js**
 
 # Code examples:
 Examples of how to use your project's code, with sample code snippets or links to sample projects.
