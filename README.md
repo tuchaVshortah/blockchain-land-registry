@@ -205,12 +205,12 @@ First of all run the Ganache-GUI after run the **node server.js** then go to chr
 [![User Profile SignUp Page](screenshots/user.png)](larger_image_path_or_external_link)
 [![User Profile](screenshots/ulogin.png)](larger_image_path_or_external_link)
 
-## Add Lands Page:}
+## Add Lands Page:
 * Go to ``Record'' menu of the LandChain system.
 * Click on the "Register Land Asset" button then fill the required information, including the land's location, and size, as well as any relevant documentation or images.
 * Submit the registration form and pay any registration fees that may be required.
 
-[![Add land asset](screenshots/assets.png)](larger_image_path_or_external_link)
+[![Add land asset](screenshots/asset.png)](larger_image_path_or_external_link)
 
 ## Search Page:
 * Go to ``Search'' menu of the LandChain system and fill the required data then click on "Search" button.
