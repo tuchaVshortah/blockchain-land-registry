@@ -192,8 +192,46 @@ contract Registry {
 # Contribution guidelines:
 Information on how others can contribute to your project, including how to submit bug reports, feature requests, and pull requests.
 
-# User Interface of LandChain:
-A statement of the license under which your project is released.
+# Appendix of LandChain:
+First of all run the Ganache-GUI after run the **node server.js** then go to chrome browser [http://localhost:9696](http://localhost:9696) after that you can see our system. In Fig.\ref{fig:home}, The specific steps for creating a user profile, registering land assets, putting land for sale, and changing land ownership in a blockchain-based land registry system will depend on the particular design of the system. However, here are some general steps that could be involved in these processes:
+
+[![Home Page](screenshots/home.png)](larger_image_path_or_external_link)
+
+## User Profile Page:
+* Go to the website or application for the blockchain-based land registry system. 
+* Click on the "Create Profile" button and fill in the required information, including your name, address, and contact details.
+* Create a login ID and password to access the system in the future then Submit the registration form and assets details.
+    
+[![User Profile SignUp Page](screenshots/user.png)](larger_image_path_or_external_link)
+[![User Profile](screenshots/ulogin.png)](larger_image_path_or_external_link)
+
+## Add Lands Page:}
+* Go to ``Record'' menu of the LandChain system.
+* Click on the "Register Land Asset" button then fill the required information, including the land's location, and size, as well as any relevant documentation or images.
+* Submit the registration form and pay any registration fees that may be required.
+
+[![Add land asset](screenshots/assets.png)](larger_image_path_or_external_link)
+
+## Search Page:
+* Go to ``Search'' menu of the LandChain system and fill the required data then click on "Search" button.
+* Now you can see the user details with assets details.
+
+[![Search](screenshots/search.png)](larger_image_path_or_external_link)
+
+## Record Page:
+* Go to ``Record'' menu of the LandChain system and click on given button.
+* Now here, you can see the lists of users with attached assets details.
+
+[![Record of all users](screenshots/assetlist.png)](larger_image_path_or_external_link)
+
+## Mutation Page:
+* Buyer verify yourself then buyer send the request to seller by seller id.
+* Seller verify yourself then get the request from buyer.
+* Now seller able to transfer ownership of assets with buyer.
+* Submit the transfer form and wait for confirmation of the transfer.
+
+[![Land mutation](screenshots/transfer.png)](larger_image_path_or_external_link)
+
 
 # Contact information:
 Information on how to contact you, such as your email address or social media handles.
