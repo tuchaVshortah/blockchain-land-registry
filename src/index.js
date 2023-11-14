@@ -43,7 +43,7 @@ function Connect(){
   }
 }
 const Deploy = async () => {   
-	const Address="0x2fF04c7bc5921792B67aA29179CDfd22B3Ac37e7";
+	const Address="0xD2015a11Dc898121F082A10e26a5d50F198e94F9";
 	const ABI=[
 		{
 			"inputs": [
