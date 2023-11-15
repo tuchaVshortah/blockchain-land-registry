@@ -236,10 +236,3 @@ First of all run the Ganache-GUI after run the **node server.js** then go to chr
 * Submit the transfer form and wait for confirmation of the transfer.
 
 [![Land mutation](screenshots/transfer.png)](larger_image_path_or_external_link)
-
-
-# Contact information:
-Information on how to contact you, such as your email address or social media handles.
-
-# FAQ:
-Frequently asked questions about your project and its use.
