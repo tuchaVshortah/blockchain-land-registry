@@ -1,7 +1,7 @@
 # Contributors
-Nurkanat Baysenkul
-Kaysar Kurmanbek
-Miras Turan
+* Nurkanat Baysenkul
+* Kaysar Kurmanbek
+* Miras Turan
 
 # Project description:
 Our project, Blockchain Land Registry, is a platform that leverages blockchain technology to create a land registry system that is secure, transparent, and immutable. Unlike the traditional land registry system, which is prone to inefficiencies, errors, and fraud, our system ensures trust and accuracy using decentralized ledger technology. Our system is built on Ethereum, Solidity, and IPFS, which make it efficient, scalable, and cost-effective. Our system enables anyone, anywhere in the world, to access the land registry records and verify their ownership without intermediaries. Our project is currently under development.
