@@ -10,7 +10,7 @@
 }
 nav{
   position: fixed;
-  background: #1b1b1b;
+  background: #4B0082;
   width: 100%;
   padding: 10px 0;
   z-index: 12;
@@ -44,7 +44,7 @@ nav .menu{
 }
 .menu ul li{
   text-decoration: none;
-  color: #9932CC;
+  color: #FFB6C1;
   font-size: 18px;
   font-weight: 500;
   padding: 8px 15px;
