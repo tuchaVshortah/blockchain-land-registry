@@ -1,5 +1,5 @@
 # Project description:
-Blockchain Land Registry is a decentralized platform that utilizes blockchain technology to provide a secure, transparent, and immutable land registry system. The traditional land registry system suffers from inefficiencies, errors, and fraud, but our system ensures trust and accuracy using decentralized ledger technology. It is built on Ethereum, Solidity, and IPFS, making it efficient, scalable, and cost-effective. It allows anyone, anywhere in the world, to access the land registry records and verify their ownership without intermediaries. Our project is currently in development.
+Our project, Blockchain Land Registry, is a platform that leverages blockchain technology to create a land registry system that is secure, transparent, and immutable. Unlike the traditional land registry system, which is prone to inefficiencies, errors, and fraud, our system ensures trust and accuracy using decentralized ledger technology. Our system is built on Ethereum, Solidity, and IPFS, which make it efficient, scalable, and cost-effective. Our system enables anyone, anywhere in the world, to access the land registry records and verify their ownership without intermediaries. Our project is currently under development.
 
 ## Tech Stack Used:
 
